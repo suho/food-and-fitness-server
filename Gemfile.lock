@@ -42,6 +42,10 @@ GEM
     bcrypt (3.1.11)
     builder (3.2.3)
     byebug (9.0.6)
+    carrierwave (1.0.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     concurrent-ruby (1.0.5)
     devise (4.2.0)
       bcrypt (~> 3.0)
@@ -139,6 +143,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  carrierwave (~> 1.0)
   devise_token_auth (~> 0.1.40)
   listen (~> 3.0.5)
   mysql2 (>= 0.3.18, < 0.5)
@@ -150,4 +155,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-   1.14.4
+   1.14.6
