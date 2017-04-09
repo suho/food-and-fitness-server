@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :goals
+
   post 'avatars/upload'
 
   mount_devise_token_auth_for 'User', at: 'auth'
