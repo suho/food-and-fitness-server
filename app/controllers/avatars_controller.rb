@@ -1,11 +1,10 @@
 class AvatarsController < ApplicationController
   def upload
-    @user = User.find(1)
-    @user.image = params[:file]
-    if @user.save
-      render json: @user, status: :created
+    current_user.image = params[:file]
+    if current_user.save
+      render json: current_user, status: :created
     else
-      render json: @user.errors
+      render json: current_user.errors
     end
   end
 end
