@@ -4,6 +4,10 @@ class ApplicationController < ActionController::API
 
   protected
 
+  def render_errors(resource)
+      render json: ErrorSerializer.serialize(resource), status: :unprocessable_entity
+    end
+
   def configure_permitted_parameters
     permitted_parameters = devise_parameter_sanitizer.instance_values['permitted']
     permitted_parameters[:sign_up] << :name
