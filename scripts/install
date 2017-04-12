@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# DEV ENV
+
+# homebrew
+if ! which brew > /dev/null; then
+    sudo chown -R "$(whoami)":admin '/usr/local'
+    /usr/bin/ruby -e "$(curl -fsSL 'https://raw.githubusercontent.com/Homebrew/install/master/install')"
+    sudo chown -R "$(whoami)":admin '/Library/Caches/Homebrew'
+fi
+
+brew update
+
+# rbenv if need
+if ! which rbenv > /dev/null; then
+    echo 'install rbenv'
+    brew install rbenv
+    eval "$(rbenv init -)"
+    echo 'which rbenv > /dev/null && eval "$(rbenv init -)"' >> ~/.bashrc
+fi
+echo 'n' | rbenv install || true
+rbenv rehash
+
+gem install bundler
+
+# PROJECT DEPENDENCES
+
+bundle install --path=vendor/bundle --jobs 4 --retry 3
+
+brew tap Homebrew/bundle
+brew bundle
+
+# mysql if need
+if ! which mysql > /dev/null; then
+    echo 'install mysql'
+    brew install mysql
+fi
+
+# rails if need
+if ! gem which rails > /dev/null; then
+    echo 'install rails'
+    gem install rails
+    rbenv rehash
+fi

@@ -1,26 +1,9 @@
 # FoodAndFitness_Server - DUT's Project
 
-# README
+## Setup Development Environment
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- `./scripts/install` - this script will install
+- [Homebrew](https://github.com/Homebrew/brew) & necessary formulas
+- [rbenv](https://github.com/rbenv/rbenv) & necessary gems
+- [mysql](https://www.mysql.com) & project's dependences
+- [rails](http://rubyonrails.org) & project's dependences

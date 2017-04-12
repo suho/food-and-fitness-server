@@ -1,11 +1,11 @@
 class AvatarsController < ApplicationController
+  before_action :authenticate_user!
+
   def upload
-    @user = User.find(1)
-    @user.image = params[:file]
-    if @user.save
-      render json: @user, status: :created
+    if current_user.update(image: params[:file])
+      render json: current_user, serializer: UserSerializer, root: 'data'
     else
-      render json: @user.errors
+      render_errors(current_user)
     end
   end
 end

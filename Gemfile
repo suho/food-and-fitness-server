@@ -29,6 +29,7 @@ gem 'puma', '~> 3.0'
 gem 'devise_token_auth', '~> 0.1.40'
 gem 'omniauth'
 gem 'carrierwave', '~> 1.0'
+gem 'active_model_serializers', '~> 0.10.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
