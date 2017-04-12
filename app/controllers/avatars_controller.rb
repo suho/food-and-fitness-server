@@ -3,9 +3,9 @@ class AvatarsController < ApplicationController
 
   def upload
     if current_user.update(image: params[:file])
-      render json: current_user, status: :created
+      render json: current_user, serializer: UserSerializer, root: 'data'
     else
-      render json: current_user.errors
+      render_errors(current_user)
     end
   end
 end

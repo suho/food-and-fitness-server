@@ -3,13 +3,13 @@ class GoalsController < ApplicationController
   end
 
   def create
-    @obj = Goal.new
-    @obj.name = params[:name]
-    @obj.detail = params[:detail]
-    if @obj.save 
-      render json: @obj, status: :created
+    goal = Goal.new
+    goal.name = params[:name]
+    goal.detail = params[:detail]
+    if goal.save 
+      render json: goal, status: :created, serializer: GoalSerializer, root: 'data'
     else
-      render json: @obj.errors
+      render_errors(goal)
     end
   end
 end

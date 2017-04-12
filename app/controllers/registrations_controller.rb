@@ -1,6 +1,6 @@
 class RegistrationsController < DeviseTokenAuth::RegistrationsController
     def render_create_success
-      render json: @resource, serializer: UserSerializer, root: 'data'
+      render json: @resource, status: :created, serializer: UserSerializer, root: 'data'
     end
 
     def render_create_error

@@ -7,9 +7,9 @@ class ActivesController < ApplicationController
         @obj.name = params[:name]
         @obj.detail = params[:detail]
         if @obj.save 
-            render json: @obj, status: :created
+            render json: @obj, status: :created, serializer: ActiveSerializer, root: 'data'
         else
-            render json: @obj.errors
+            render_errors(offer)
         end
     end
 end
