@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :actives
   resources :foods
   resources :exercises
+  resources :user_foods
+  resources :user_exercises
 
   put 'avatars/upload'
 
