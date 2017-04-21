@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+
   resources :goals
   resources :actives
+  resources :foods
+  resources :exercises
 
   put 'avatars/upload'
 
