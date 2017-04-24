@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20170408144847) do
   end
 
   create_table "user_exercises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "duration"
     t.integer  "user_id"
     t.integer  "exercise_id"
     t.datetime "created_at",  null: false
@@ -58,6 +59,8 @@ ActiveRecord::Schema.define(version: 20170408144847) do
   end
 
   create_table "user_foods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "weight"
+    t.string   "meal"
     t.integer  "user_id"
     t.integer  "food_id"
     t.datetime "created_at", null: false
