@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+
   resources :goals
   resources :actives
+  resources :foods
+  resources :exercises
+  resources :user_foods
+  resources :user_exercises
+  resources :trackings
 
   put 'avatars/upload'
 
