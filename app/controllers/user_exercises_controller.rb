@@ -21,5 +21,7 @@ class UserExercisesController < ApplicationController
   end
 
   def destroy
+    user_exercise = UserExercise.find(params[:id])
+    user_exercise.destroy
   end
 end

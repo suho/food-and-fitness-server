@@ -23,5 +23,7 @@ class UserFoodsController < ApplicationController
   end
 
   def destroy
+    user_food = UserFood.find(params[:id])
+    user_food.destroy
   end
 end

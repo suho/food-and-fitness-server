@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408144847) do
+ActiveRecord::Schema.define(version: 20170425015153) do
 
   create_table "actives", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -46,6 +46,26 @@ ActiveRecord::Schema.define(version: 20170408144847) do
     t.string   "detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.float    "latitude",    limit: 24
+    t.float    "longitude",   limit: 24
+    t.integer  "tracking_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["tracking_id"], name: "index_locations_on_tracking_id", using: :btree
+  end
+
+  create_table "trackings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "active"
+    t.integer  "duration"
+    t.integer  "distance"
+    t.integer  "velocity"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_trackings_on_user_id", using: :btree
   end
 
   create_table "user_exercises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
