@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 20170425015153) do
     t.string   "active"
     t.integer  "duration"
     t.integer  "distance"
-    t.integer  "velocity"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

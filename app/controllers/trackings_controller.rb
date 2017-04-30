@@ -20,7 +20,10 @@ class TrackingsController < ApplicationController
   end
 
   def destroy
+    tracking = Tracking.find(params[:id])
+    tracking.destroy
   end
+
 
   private
 
