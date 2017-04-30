@@ -9,7 +9,8 @@ class UserFoodsController < ApplicationController
   def create
     user_food = UserFood.new
     user_food.weight = params[:weight]
-    user_food.user_id = current_user.id
+    userHistory = UserHistory.where(["user_id = ?", current_user.id]).last
+    user_food.user_history_id = userHistory.id
     user_food.food_id = params[:food_id]
     user_food.meal = params[:meal]
     if user_food.save 

@@ -5,7 +5,7 @@ class CreateTrackings < ActiveRecord::Migration[5.0]
       t.integer :duration
       t.integer :distance
 
-      t.belongs_to :user
+      t.belongs_to :user_history
 
       t.timestamps
     end

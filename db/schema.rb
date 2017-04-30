@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425015153) do
+ActiveRecord::Schema.define(version: 20170430035131) do
 
   create_table "actives", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -61,31 +61,44 @@ ActiveRecord::Schema.define(version: 20170425015153) do
     t.string   "active"
     t.integer  "duration"
     t.integer  "distance"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_trackings_on_user_id", using: :btree
+    t.integer  "user_history_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["user_history_id"], name: "index_trackings_on_user_history_id", using: :btree
   end
 
   create_table "user_exercises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "duration"
-    t.integer  "user_id"
+    t.integer  "user_history_id"
     t.integer  "exercise_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["exercise_id"], name: "index_user_exercises_on_exercise_id", using: :btree
-    t.index ["user_id"], name: "index_user_exercises_on_user_id", using: :btree
+    t.index ["user_history_id"], name: "index_user_exercises_on_user_history_id", using: :btree
   end
 
   create_table "user_foods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "weight"
     t.string   "meal"
-    t.integer  "user_id"
+    t.integer  "user_history_id"
     t.integer  "food_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["food_id"], name: "index_user_foods_on_food_id", using: :btree
+    t.index ["user_history_id"], name: "index_user_foods_on_user_history_id", using: :btree
+  end
+
+  create_table "user_histories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "height"
+    t.integer  "weight"
+    t.integer  "user_id"
+    t.integer  "goal_id"
+    t.integer  "active_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["food_id"], name: "index_user_foods_on_food_id", using: :btree
-    t.index ["user_id"], name: "index_user_foods_on_user_id", using: :btree
+    t.index ["active_id"], name: "index_user_histories_on_active_id", using: :btree
+    t.index ["goal_id"], name: "index_user_histories_on_goal_id", using: :btree
+    t.index ["user_id"], name: "index_user_histories_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

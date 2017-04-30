@@ -1,6 +1,8 @@
 class TrackingsController < ApplicationController
     before_action :authenticate_user!
   def index
+    trackings = Tracking.all
+    render json: trackings, each_serializer: TrackingSerializer, root: 'data'
   end
 
   def show
@@ -8,7 +10,8 @@ class TrackingsController < ApplicationController
 
   def create
       tracking = Tracking.new(tracking_params)
-      tracking.user_id = current_user.id
+      userHistory = UserHistory.where(["user_id = ?", current_user.id]).last
+      tracking.user_history_id = userHistory.id
       if tracking.save
         render json: tracking, status: :created, serializer: TrackingSerializer, root: 'data'  
       else
