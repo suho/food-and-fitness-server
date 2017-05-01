@@ -1,7 +1,7 @@
 class TrackingsController < ApplicationController
     before_action :authenticate_user!
   def index
-    trackings = Tracking.all
+    trackings = Tracking.joins(user_history: :user).where("users.id = #{current_user.id}")
     render json: trackings, each_serializer: TrackingSerializer, root: 'data'
   end
 
