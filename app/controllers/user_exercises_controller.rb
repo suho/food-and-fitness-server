@@ -1,6 +1,8 @@
 class UserExercisesController < ApplicationController
   before_action :authenticate_user!
   def index
+    user_exercises = UserExercise.joins(user_history: :user).where("users.id = #{current_user.id}")
+    render json: user_exercises, each_serializer: UserExerciseSerializer, root: 'data'
   end
 
   def show

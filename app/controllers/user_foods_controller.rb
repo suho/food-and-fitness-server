@@ -1,6 +1,8 @@
 class UserFoodsController < ApplicationController
   before_action :authenticate_user!
   def index
+    user_foods = UserFood.joins(user_history: :user).where("users.id = #{current_user.id}")
+    render json: user_foods, each_serializer: UserFoodSerializer, root: 'data'
   end
 
   def show
