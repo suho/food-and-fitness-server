@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :user_foods
   resources :user_exercises
   resources :trackings
+  resources :user_histories
 
   put 'avatars/upload'
 
