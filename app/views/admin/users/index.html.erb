@@ -1,0 +1,46 @@
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<%= button_to 'Logout', "/admin/login/destroy" , method: :delete %>
+<h1>List User</h1>
+<%= button_to 'Create New', "new" , method: :get %>
+<br>
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Birthday</th>
+		<th>Height</th>
+		<th>Weight</th>
+		<th></th>
+	</tr>
+	<% @users.each { |user| %>
+		<tr>
+			<td><%= user.id %></td>
+			<td><%= user.name %></td>
+			<td><%= user.email %></td>
+			<td><%= user.birthday %></td>
+			<td><%= user.height %></td>
+			<td><%= user.weight %></td>
+			<!--<td><%= button_to 'Edit', "edit" , method: :get, params: { id: user.id }%></td>-->
+    		<td><%= button_to 'Delete', "destroy" , method: :delete, params: { id: user.id }%></td>
+		</tr>
+	<% } %>
+</table>
+
+
