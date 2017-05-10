@@ -1,0 +1,34 @@
+<div class="col-md-10">
+  			<div class="content-box-large">
+  				<div class="panel-heading">
+					<div class="panel-title">Exercises</div>
+				</div>
+  				<div class="panel-body">
+  					<div class="table-responsive">
+  						<table class="table">
+								<tr>
+									<th>#</th>
+									<th>Name</th>
+									<th>Calories</th>
+									<th>Duration</th>
+									<th></th>
+									<th></th>
+								</tr>
+								<% id = 1 %>
+								<% @exercises.each { |exercise| %>
+								<tr>
+									<td><%= id %></td>
+									<td><%= exercise.name %></td>
+									<td><%= exercise.calories %></td>
+									<td><%= exercise.duration %></td>
+									<td><%= button_to 'Edit', "/admin/exercises/edit" , method: :get, params: { id: exercise.id }, class: "btn btn-primary btn-xs" %></td>
+    							<td><%= button_to 'Delete', "/admin/exercises/destroy" , method: :delete, params: { id: exercise.id }, class: "btn btn-danger btn-xs" %></td>
+								</tr>
+								<% id += 1 %>
+								<% } %>
+							</table>
+  					</div>
+  				</div>
+  			</div>
+		  </div>
+		</div>

@@ -1,0 +1,14 @@
+<h1>Edit User</h1>
+<form action="update" method="post">
+  <input type="hidden" name="_method" value="put"/>
+  Username:<br>
+  <input type="text" name="username" value="<%= @user_edit.username %>"><br><br>
+  Description:<br>
+  <textarea name="description" cols="10" rows="10"><%= @user_edit.description %></textarea>
+  <br><br>
+  Age:<br>
+  <input type="number" name="age" value="<%= @user_edit.age %>">
+  <br><br>
+  <input type="hidden" name="id" value="<%= @user_edit.id %>"/>
+  <input type="submit" value="Update">
+</form> 

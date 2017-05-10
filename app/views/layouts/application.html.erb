@@ -1,15 +1,60 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap Admin Theme v3</title>
+    <title>Food And Fitness Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<%= stylesheet_link_tag "application", media: 'all' , 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag "application" , 'data-turbolinks-track' => true %>
-</head>
+  </head>
+  <body>
+  <div class="header">
+	     <div class="container">
+	        <div class="row">
+	           <div class="col-md-5">
+	              <!-- Logo -->
+	              <div class="logo">
+	                 <h1><a href="">Food And Fitness</a></h1>
+	              </div>
+	           </div>
+	           <div class="col-md-7">
+	              <div class="navbar navbar-inverse" role="banner">
+	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+	                    <ul class="nav navbar-nav">
+	                      <li class="dropdown">
+													<%= button_to 'Log out', "/admin/login/destroy" , method: :delete, class: "btn btn-default btn-sm vertical" %>
+	                      </li>
+	                    </ul>
+	                  </nav>
+	              </div>
+	           </div>
+	        </div>
+	     </div>
+	</div>
 
-<body>
+    <div class="page-content">
+    	<div class="row">
+		  <div class="col-md-2">
+		  	<div class="sidebar content-box" style="display: block;">
+                <ul class="nav">
+                    <!-- Main menu -->
+										<!-- class="current" -->
+                    <li><a href="/admin/home"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+                    <li><a href="/admin/users"><i class="glyphicon glyphicon-list"></i> Users</a></li>
+										<li><a href="/admin/goals"><i class="glyphicon glyphicon-list"></i> Goals</a></li>
+										<li><a href="/admin/actives"><i class="glyphicon glyphicon-list"></i> Actives</a></li>
+										<li><a href="/admin/foods"><i class="glyphicon glyphicon-list"></i> Foods</a></li>
+										<li><a href="/admin/exercises"><i class="glyphicon glyphicon-list"></i> Exercises</a></li>
+                </ul>
+             </div>
+		  </div>
     <%= yield %>
-
-    <script src="https://code.jquery.com/jquery.js"></script>
-		</body>
+  </div>
+        <footer>
+         <div class="container">
+            <div class="copy text-center">
+               Copyright 2017 <a href='#'>Food And Fitness</a>
+            </div>
+         </div>
+      </footer>
+	</body>
 </html>

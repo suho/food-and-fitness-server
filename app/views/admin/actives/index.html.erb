@@ -1,0 +1,32 @@
+<div class="col-md-10">
+  			<div class="content-box-large">
+  				<div class="panel-heading">
+					<div class="panel-title">Actives</div>
+				</div>
+  				<div class="panel-body">
+  					<div class="table-responsive">
+  						<table class="table">
+								<tr>
+									<th>#</th>
+									<th>Name</th>
+									<th>Detail</th>
+									<th></th>
+									<th></th>
+								</tr>
+								<% id = 1 %>
+								<% @actives.each { |active| %>
+								<tr>
+									<td><%= id %></td>
+									<td><%= active.name %></td>
+									<td><%= active.detail %></td>
+									<td><%= button_to 'Edit', "/admin/actives/edit" , method: :get, params: { id: active.id }, class: "btn btn-primary btn-xs" %></td>
+    							<td><%= button_to 'Delete', "/admin/actives/destroy" , method: :delete, params: { id: active.id }, class: "btn btn-danger btn-xs" %></td>
+								</tr>
+								<% id += 1 %>
+								<% } %>
+							</table>
+  					</div>
+  				</div>
+  			</div>
+		  </div>
+		</div>

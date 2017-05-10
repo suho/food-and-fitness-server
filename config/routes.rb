@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     resources 'login'
     resources 'users'
     resources 'home'
+    resources 'actives'
+    resources 'exercises'
+    resources 'foods'
+    resources 'goals'
   end
 
   resources :goals

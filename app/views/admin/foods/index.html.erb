@@ -1,0 +1,40 @@
+<div class="col-md-10">
+  			<div class="content-box-large">
+  				<div class="panel-heading">
+					<div class="panel-title">Responsive Tables</div>
+				</div>
+  				<div class="panel-body">
+  					<div class="table-responsive">
+  						<table class="table">
+								<tr>
+									<th>#</th>
+									<th>Name</th>
+									<th>Weight</th>
+									<th>Calories</th>
+									<th>Protein</th>
+									<th>Carbs</th>
+									<th>Fat</th>
+									<th></th>
+									<th></th>
+								</tr>
+								<% id = 1 %>
+								<% @foods.each { |food| %>
+								<tr>
+									<td><%= id %></td>
+									<td><%= food.name %></td>
+									<td><%= food.weight %></td>
+									<td><%= food.calories %></td>
+									<td><%= food.protein %></td>
+									<td><%= food.carbs %></td>
+									<td><%= food.fat %></td>
+									<td><%= button_to 'Edit', "/admin/foods/edit" , method: :get, params: { id: food.id }, class: "btn btn-primary btn-xs" %></td>
+    							<td><%= button_to 'Delete', "/admin/foods/destroy" , method: :delete, params: { id: food.id }, class: "btn btn-danger btn-xs" %></td>
+								</tr>
+								<% id += 1 %>
+								<% } %>
+							</table>
+  					</div>
+  				</div>
+  			</div>
+		  </div>
+		</div>

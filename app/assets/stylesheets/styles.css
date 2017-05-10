@@ -7,6 +7,10 @@ body {
   padding: 0px;
 }
 
+.vertical {
+  margin-top: 10px;
+}
+
 .header {
   background: #000;
 }

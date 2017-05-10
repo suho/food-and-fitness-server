@@ -1,4 +1,4 @@
-class Admin::UsersController < ActionController::Base
+class Admin::ActivesController < ActionController::Base
   before_action :require_login, :only => [:index, :edit, :update, :destroy]
   layout "application"
   def require_login
@@ -9,7 +9,7 @@ class Admin::UsersController < ActionController::Base
   end
 
   def index
-    @users = User.all
+    @actives = Active.all
   end
 
   def show
@@ -19,7 +19,7 @@ class Admin::UsersController < ActionController::Base
   end
 
   def edit
-    @user_edit = User.find(params[:id])
+    # @user_edit = User.find(params[:id])
   end
 
   def create
