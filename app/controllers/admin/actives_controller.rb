@@ -13,6 +13,7 @@ class Admin::ActivesController < ActionController::Base
   end
 
   def show
+    @active = Active.find(params[:id])
   end
 
   def new
@@ -34,13 +35,13 @@ class Admin::ActivesController < ActionController::Base
   end
 
   def update
-    # user_update = User.find(params[:id])
-    # user_update.username = params[:username]
-    # user_update.description = params[:description]
-    # user_update.age = params[:age]
-    # if user_update.save
-    #   redirect_to "/users/index"
-    # end
+    # binding.pry
+    active = Active.find(params[:id])
+    active.name = params[:name]
+    active.detail = params[:detail]
+    if active.save
+      redirect_to "/admin/actives"
+    end
   end
 
   def destroy

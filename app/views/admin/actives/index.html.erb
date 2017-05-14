@@ -4,6 +4,13 @@
 					<div class="panel-title">Actives</div>
 				</div>
   				<div class="panel-body">
+				  <%
+				  	if @actives.count < 4
+					  %>
+					  <%= button_to 'Add New', "/admin/goals/new" , method: :get,  class: "btn btn-primary btn-xs"%>
+					  <%
+					end
+				  %>
   					<div class="table-responsive">
   						<table class="table">
 								<tr>
@@ -19,8 +26,8 @@
 									<td><%= id %></td>
 									<td><%= active.name %></td>
 									<td><%= active.detail %></td>
-									<td><%= button_to 'Edit', "/admin/actives/edit" , method: :get, params: { id: active.id }, class: "btn btn-primary btn-xs" %></td>
-    							<td><%= button_to 'Delete', "/admin/actives/destroy" , method: :delete, params: { id: active.id }, class: "btn btn-danger btn-xs" %></td>
+									<td><%= button_to 'Edit', "/admin/actives/#{active.id}" , method: :get, class: "btn btn-primary btn-xs" %></td>
+    								<td><%= button_to 'Delete', "/admin/actives/destroy" , method: :delete, params: { id: active.id }, class: "btn btn-danger btn-xs" %></td>
 								</tr>
 								<% id += 1 %>
 								<% } %>
@@ -28,5 +35,5 @@
   					</div>
   				</div>
   			</div>
-		  </div>
 		</div>
+</div>

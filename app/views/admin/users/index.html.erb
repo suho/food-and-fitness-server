@@ -4,6 +4,8 @@
 					<div class="panel-title">Users</div>
 				</div>
   				<div class="panel-body">
+				  <%= button_to 'Add New', "/admin/users/new" , method: :get,  class: "btn btn-primary btn-xs"%>
+				  <br></br>
   					<div class="table-responsive">
   						<table class="table">
 								<tr>
@@ -13,6 +15,7 @@
 									<th>Birthday</th>
 									<th>Height</th>
 									<th>Weight</th>
+									<th></th>
 									<th></th>
 								</tr>
 								<% id = 1 %>
@@ -24,8 +27,8 @@
 									<td><%= user.birthday %></td>
 									<td><%= user.height %></td>
 									<td><%= user.weight %></td>
-								<!--<td><%= button_to 'Edit', "edit" , method: :get, params: { id: user.id }%></td>-->
-    							<td><%= button_to 'Delete', "destroy" , method: :delete, params: { id: user.id }, class: "btn btn-danger btn-xs" %></td>
+								<td><%= button_to 'Edit', "/admin/users/edit" , method: :get, params: { id: user.id },  class: "btn btn-primary btn-xs"%></td>
+    							<td><%= button_to 'Delete', "/admin/users/destroy" , method: :delete, params: { id: user.id }, class: "btn btn-danger btn-xs" %></td>
 								</tr>
 								<% id += 1 %>
 								<% } %>

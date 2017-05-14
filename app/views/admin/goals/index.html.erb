@@ -1,10 +1,17 @@
 <div class="col-md-10">
   			<div class="content-box-large">
   				<div class="panel-heading">
-					<div class="panel-title">Responsive Tables</div>
+					<div class="panel-title">Goals</div>
 				</div>
   				<div class="panel-body">
   					<div class="table-responsive">
+					  <%
+				  	if @goals.count < 3
+					  %>
+					  <%= button_to 'Add New', "/admin/goals/new" , method: :get,  class: "btn btn-primary btn-xs"%>
+					  <%
+					end
+				  %>
   						<table class="table">
 								<tr>
 									<th>#</th>
