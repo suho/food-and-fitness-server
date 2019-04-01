@@ -1,4 +1,4 @@
-# FoodAndFitness_Server - DUT's Project
+# Food And Fitness Server - DUT's Project
 
 ## Setup Development Environment
 
